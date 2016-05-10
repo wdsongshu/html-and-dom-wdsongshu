@@ -1,0 +1,88 @@
+function checkMessage(form){
+    if(form.class.value.length === 0) {
+        alert('请输入班级！');
+    }
+    if(form.classNumber.value.length === 0){
+        alert('请输入学号！');
+    }
+    if(form.name.value.length === 0){
+        alert('请输入姓名！');
+    }
+
+    
+}
+
+function getFillInGrade(form){
+    var fillInGrade = 0;
+    if(form.fillIn_1.value === '统一建模语言')
+        fillInGrade+=10;
+    if(form.fillIn_2_1.value === '封装性')
+        fillInGrade+=10;
+    if(form.fillIn_2_2.value === '继承性')
+        fillInGrade+=10;
+    if(form.fillIn_2_3.value === '多态性')
+        fillInGrade+=10;
+    return fillInGrade;
+}
+
+function  getChooseGrade(form){
+    var chooseGrade = 0;
+    if(form.choose_2_A.value === 'A')
+        chooseGrade+=10;
+    return  chooseGrade;
+}
+
+function  getMuchChooseGrade(){
+    var muchChooseGrade = 0;
+    if(muchChoose_1_A.value === 'A')
+        muchChooseGrade+=10;
+    if(muchChoose_1_C.value === 'C')
+        muchChooseGrade+=10;
+    if(muchChoose_1_B.value === 'C')
+        muchChooseGrade+=10;
+    return muchChooseGrade;
+}
+
+function  getJudgeGrade(){
+    return judge = [
+        '正确','错误'
+    ];
+}
+
+function  getShortAnswerGrade(){
+
+    return shortAnswer = [
+        '模型是对现实世界的简化和抽象,模型是对所研究的系统、过程、事物或概念的一种表达形式。可以是物理实体;可以是某种图形;或者是一种数学表达式。'
+    ];
+}
+
+function printTotalGrade(){
+    
+    alert(document.forms.form1.fillIn_1.value);
+    alert(document.forms.form1.class.value);
+    if(document.forms.form1.class.value.length != 0)
+    {
+        alert("请输入班级！");
+    }
+
+    checkMessage(forms);
+
+    var fillInGrade =  getFillInGrade(forms);
+
+    var chooseGrade =  getChooseGrade(forms);
+
+    var muchChooseGrade = getMuchChooseGrade(form);
+
+    var judgeGrade = getJudgeGrade();
+
+    var shortAnswer = getShortAnswerGrade();
+
+    var totalGrade = fillInGrade + chooseGrade + muchChooseGrade + judgeGrade + shortAnswer;
+
+    document.forms[0].grade.value = totalGrade;
+}
+
+function onClick(){
+    return  printTotalGrade();
+}
+
